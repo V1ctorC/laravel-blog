@@ -5,7 +5,7 @@
 
 <body>
     <article>
-        <h1><a href="/post">My first posts</a></h1>
+        <h1><a href="/posts/my-first-post">My first post</a></h1>
 
         <p>
             Lorem ipsum dolor sit amet. Est adipisci libero et quia ullam non omnis magnam et suscipit quod sit quia quibusdam. Et fuga alias cum cumque galisum sit sint adipisci.
@@ -17,7 +17,7 @@
     </article>
 
     <article>
-        <h1><a href="/post">My second posts</a></h1>
+        <h1><a href="/posts/my-second-post">My second post</a></h1>
 
         <p>
             Lorem ipsum dolor sit amet. Est adipisci libero et quia ullam non omnis magnam et suscipit quod sit quia quibusdam. Et fuga alias cum cumque galisum sit sint adipisci.
@@ -29,7 +29,7 @@
     </article>
 
     <article>
-        <h1><a href="/post">My third posts</a></h1>
+        <h1><a href="/posts/my-third-post">My third post</a></h1>
 
         <p>
             Lorem ipsum dolor sit amet. Est adipisci libero et quia ullam non omnis magnam et suscipit quod sit quia quibusdam. Et fuga alias cum cumque galisum sit sint adipisci.
