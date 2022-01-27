@@ -16,52 +16,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
-        Category::truncate();
-        Post::truncate();
-
-        $user = User::factory()->create();
-
-        $family = Category::create([
-            'name'  => 'Family',
-            'slug'  => 'family'
+        $user = User::factory()->create([
+            'name' => 'John Doe'
         ]);
 
-        $work = Category::create([
-            'name'  => 'Work',
-            'slug'  => 'work'
-        ]);
-
-        $personal = Category::create([
-            'name'  => 'Personal',
-            'slug'  => 'personal'
-        ]);
-
-        Post::create([
-            'user_id' => $user->id,
-            'category_id' => $family->id,
-            'title' => 'My first post',
-            'slug' => 'my-first-post',
-            'excerpt' => '<p>Lorem ipsum foijfiojefs fdsf</p>',
-            'body' => '<p>Lorem ipsum foisjfiodjs foijdsofijdso fijosdjfoidsjfoidjsf oijdso fijsdofifjd soifjodsij fosijf odis</p>'
-        ]);
-
-        Post::create([
-            'user_id' => $user->id,
-            'category_id' => $work->id,
-            'title' => 'My second post',
-            'slug' => 'my-second-post',
-            'excerpt' => '<p>Lorem ipsum foijfiojefs fdsf</p>',
-            'body' => '<p>Lorem ipsum foisjfiodjs foijdsofijdso fijosdjfoidsjfoidjsf oijdso fijsdofifjd soifjodsij fosijf odis</p>'
-        ]);
-
-        Post::create([
-            'user_id' => $user->id,
-            'category_id' => $personal->id,
-            'title' => 'My third post',
-            'slug' => 'my-third-post',
-            'excerpt' => '<p>Lorem ipsum foijfiojefs fdsf</p>',
-            'body' => '<p>Lorem ipsum foisjfiodjs foijdsofijdso fijosdjfoidsjfoidjsf oijdso fijsdofifjd soifjodsij fosijf odis</p>'
+        Post::factory(5)->create([
+            'user_id' => $user->id
         ]);
     }
 }
