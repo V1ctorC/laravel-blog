@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
-Route::get('ping', function () {
+Route::post('newsletter', function () {
+    request()->validate(['email' => 'required|email']);
+
     $mailchimp = new \MailchimpMarketing\ApiClient();
 
     $mailchimp->setConfig([
@@ -19,11 +21,17 @@ Route::get('ping', function () {
         'server' => 'us14'
     ]);
 
-    $response = $mailchimp->lists->addListMember('a03defaf87', [
-        'email_address' => 'coucou@gmail.com',
-        'status' => 'subscribed'
-    ]);
-    ddd($response);
+    try {
+        $response = $mailchimp->lists->addListMember('a03defaf87', [
+            'email_address' => request('email'),
+            'status' => 'subscribed'
+        ]);
+    } catch (Exception $e) {
+        throw \Illuminate\Validation\ValidationException::withMessages(['email' => 'Invalid email']);
+    }
+
+
+    return redirect('/')->with('success', 'You are now signed up for our newsletter');
 });
 
 Route::get('/', [PostController::class, 'index'])->name('home');
